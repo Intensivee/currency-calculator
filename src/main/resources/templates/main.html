@@ -1,0 +1,40 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  th:href="@{/styles/main.css}">
+    <script type="text/javascript" th:src="@{/js/main.js}" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="header">Currency Calculator Demo :)</h1>
+    </header>
+    <main>
+        <section class="inputs-section">
+
+            <div class="input-container">
+                <p class="input-title">You send</p>
+                <input id="send-input" type="number" min="0" oninput="calculateOutput(this)">
+            </div>
+
+            <div class="input-container">
+                <p class="input-title">You send</p>
+                <input id="receive-input" type="number" min="0" oninput="calculateOutput(this)">
+            </div>
+
+            <p class="rate-text">
+                1 <span th:text="${sendCurrency}"></span> =
+                <strong>
+                    <span id="rate" th:text="${currencyRate}"></span>
+                    <span th:text="${receiveCurrency}"></span>
+                </strong>
+            </p>
+            <p class="fee-info">No transfer fee</p>
+
+        </section>
+    </main>
+</body>
+</html>
