@@ -3,6 +3,7 @@ const receiveInput = document.querySelector("#receive-input");
 const rateValue = document.querySelector("#rate").textContent;
 
 function calculateOutput(input) {
+    input.value = String(input.value).substring(0, 9);
     if(!validateInput(input)){
         return;
     }
