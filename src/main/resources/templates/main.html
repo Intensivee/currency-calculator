@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Calculator</title>
@@ -10,31 +10,33 @@
 </head>
 <body>
     <header>
-        <h1 class="header">Currency Calculator Demo :)</h1>
+        <h1>Currency Calculator</h1>
     </header>
     <main>
-        <section class="inputs-section">
 
-            <div class="input-container">
-                <p class="input-title">You send</p>
-                <input id="send-input" type="number" min="0" oninput="calculateOutput(this)">
-            </div>
+        <p class="input-title">You send</p>
+        <div class="input-container">
+            <input id="send-input" class="input" type="number" min="0" oninput="calculateOutput(this)">
+            <img class="flag-img" alt="sender flag" src="https://firebasestorage.googleapis.com/v0/b/library-3efc9.appspot.com/o/img%2Funited-kingdom.png?alt=media&token=506b33b4-662e-49f5-8d8f-903d6806b848">
+            <p class="currency" th:text="${sendCurrency}"></p>
+        </div>
 
-            <div class="input-container">
-                <p class="input-title">You send</p>
-                <input id="receive-input" type="number" min="0" oninput="calculateOutput(this)">
-            </div>
+        <p class="input-title">They receive</p>
+        <div class="input-container">
+            <input id="receive-input" class="input" type="number" min="0" oninput="calculateOutput(this)">
+            <img class="flag-img" alt="receiver flag" src="https://firebasestorage.googleapis.com/v0/b/library-3efc9.appspot.com/o/img%2Fpoland.png?alt=media&token=a8fa479c-324f-4c97-a668-76dbef1afcc6">
+            <p class="currency" th:text="${receiveCurrency}"></p>
+        </div>
 
-            <p class="rate-text">
-                1 <span th:text="${sendCurrency}"></span> =
-                <strong>
-                    <span id="rate" th:text="${currencyRate}"></span>
-                    <span th:text="${receiveCurrency}"></span>
-                </strong>
-            </p>
-            <p class="fee-info">No transfer fee</p>
+        <p class="rate-text">
+            1 <span th:text="${sendCurrency}"></span> =
+            <strong>
+                <span id="rate" th:text="${currencyRate}"></span>
+                <span th:text="${receiveCurrency}"></span>
+            </strong>
+        </p>
+        <p class="fee-info">No transfer fee</p>
 
-        </section>
     </main>
 </body>
 </html>
