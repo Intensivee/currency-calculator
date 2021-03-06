@@ -1,5 +1,6 @@
 package com.remi.calculator.resource;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 public class CurrencyResource {
@@ -7,6 +8,7 @@ public class CurrencyResource {
     String table;
     String currency;
     String code;
+    @NotEmpty
     List<RateResource> rates;
 
     public String getTable() {
