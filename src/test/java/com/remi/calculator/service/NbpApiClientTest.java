@@ -20,11 +20,9 @@ class NbpApiClientTest {
 
     @Test
     void givenWrongCurrencyCode_throwsException() {
-        String wrongCurrencyCode = "Some Wrong Code";
+        String wrongCurrencyCode = "Some Wrong Codee";
 
-        assertThrows(FeignException.class, () -> {
-           this.nbpApiClient.getCurrencyStatus(wrongCurrencyCode);
-        });
+        assertThrows(FeignException.class, () -> this.nbpApiClient.getCurrencyStatus(wrongCurrencyCode));
     }
 
     @Test

@@ -22,9 +22,7 @@ class RateServiceTest {
     void givenWrongCurrencyCode_throwsException() {
         String wrongCurrencyCode = "Some Wrong Code";
 
-        assertThrows(FeignException.class, () -> {
-            this.rateService.getCurrentRateByCurrencyCode(wrongCurrencyCode);
-        });
+        assertThrows(FeignException.class, () -> this.rateService.getCurrentRateByCurrencyCode(wrongCurrencyCode));
     }
 
     @Test
