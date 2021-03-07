@@ -1,16 +1,19 @@
 const sendInput = document.querySelector("#send-input");
 const receiveInput = document.querySelector("#receive-input");
-const rateValue = document.querySelector("#rate").textContent;
+const rateValue = new BigNumber(document.querySelector("#rate").textContent);
 
 function calculateOutput(input) {
     input.value = String(input.value).substring(0, 9);
     if(!validateInput(input)){
         return;
     }
+
+    const sendInputValue = new BigNumber(sendInput.value);
+    const receiveInputValue = new BigNumber(receiveInput.value);
     if(input === sendInput){
-        receiveInput.value = (sendInput.value * rateValue).toFixed(2);
-    } else if(parseFloat(rateValue) !== 0){
-        sendInput.value = (receiveInput.value / rateValue).toFixed(2);
+        receiveInput.value = sendInputValue.multipliedBy(rateValue).toFixed(4);
+    } else if(!rateValue.isEqualTo(0)){
+        sendInput.value = receiveInputValue.dividedBy(rateValue).toFixed(4);
     }
 }
 
